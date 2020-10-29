@@ -85,10 +85,12 @@ class Eye(object):
 
         try:
             ratio = eye_width / eye_height
+
         except ZeroDivisionError:
             ratio = None
 
         return ratio
+
 
     def _analyze(self, original_frame, landmarks, side, calibration):
         """Detects and isolates the eye in a new frame, sends data to the calibration

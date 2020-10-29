@@ -9,7 +9,7 @@ from keras.models import load_model
 import numpy as np
 from PIL import Image
 from mtcnn.mtcnn import MTCNN
-model = load_model('./models/facenet_keras.h5')
+model = load_model('/Users/jaehyeoklee/Documents/GitHub/POSCO_AIProject_OnlineTestCheatingDetectionAiSystem/models/facenet_keras.h5')
 print(model.inputs)
 print(model.outputs)
 
@@ -70,7 +70,7 @@ def load_faces(direc):
         # call get face
         face = extract_face(path)
         faces.append(face)
-    
+
     return faces
 
 #To run over train and val directories
@@ -94,8 +94,8 @@ def load_dataset(direc):
         y.extend(labels)
     return np.asarray(x), np.asarray(y)
 
-trainX, trainy = load_dataset('dataset/train/')
+trainX, trainy = load_dataset('/Users/jaehyeoklee/Documents/GitHub/POSCO_AIProject_OnlineTestCheatingDetectionAiSystem/dataset/train/')
 print(trainX.shape, trainy.shape)
-valX, valy = load_dataset('dataset/val/')
+valX, valy = load_dataset('/Users/jaehyeoklee/Documents/GitHub/POSCO_AIProject_OnlineTestCheatingDetectionAiSystem/dataset/val/')
 print(trainX.shape, trainy.shape)
 np.savez_compressed('FriendsDataset.npz', trainX, trainy, valX, valy)
